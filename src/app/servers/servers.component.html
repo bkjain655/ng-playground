@@ -1,0 +1,20 @@
+
+<div class="row">
+<!-- <input class="" (input)="onUpdateServerName($event)"/> -->
+<input class="" 
+  [(ngModel)]="serverName"
+/>
+</div>
+<button 
+  class="add-server btn btn-primary" 
+  [disabled]="!allowServer"
+  (click)="onCreateServer()">Add Server</button>
+<p *ngIf="serverCreated else noServer">{{serverCreatedStatus}}</p>
+<ng-template #noServer>
+  <p>
+    No Server Created !.
+  </p>
+</ng-template>
+<p>Allow Server value with String Interpolation : {{ allowServer }}</p>
+<div>Allow Server value with Property Interpolation :<p [innerText]="allowServer"></p></div>
+<app-server *ngFor="let server of servers"></app-server>
