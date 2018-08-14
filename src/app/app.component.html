@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-12">
       <app-header></app-header>
   </div>
@@ -20,4 +20,25 @@
       <app-servers></app-servers>
     </div>
   </div>
-</div> -->
+</div> --> 
+
+<div class="container">
+    <app-create-server 
+      (serverCreated)="onServerCreated($event)"></app-create-server>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <div
+          class="panel panel-default"
+          *ngFor="let element of serverElements">
+          <app-server-list [srvElement]="element">
+              <p>
+                <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+                <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+              </p>
+          </app-server-list>
+        </div>
+      </div>
+    </div>
+  </div>
+  
