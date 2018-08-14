@@ -3,15 +3,10 @@
     <button class="btn btn-success">Add Receipe!</button>
     <hr>
     <div class="row" *ngFor="let receipe of receipes">
-      <a href="#" class="list-group-item clearfix">
-        <div class="pull-left">
-          <h4 class="list-group-item-heading">{{receipe.name}}</h4>
-          <p class="list-group-item-text">{{receipe.description}}</p>
-        </div>
-        <span class="pull-right">
-          <img src="{{receipe.imgPath}}" alt="{{receipe.name}}" class="img-responsive" style="max-width: 50px;">
-        </span>
-      </a>
+      <app-receipe-item
+        [receipeItem]=receipe
+        (receipeSelected) = "onSelectedReceipe(receipe)"
+      ></app-receipe-item>
     </div>
   </div>
 </div>

@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  linkClicked:string = "receipes";
   serverElements = [{
     type: 'blueprint',
     name:"test server",
@@ -19,5 +20,9 @@ export class AppComponent {
       name: serverData.name,
       content: serverData.content
     });
+  }
+
+  onLinkClicked(data){
+    this.linkClicked = data;
   }
 }

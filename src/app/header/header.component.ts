@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
 
 @Component({
     templateUrl : "./header.component.html",
@@ -6,5 +6,10 @@ import { Component } from "@angular/core";
     styles : []
 })
 export class HeaderComponent{
+    @Output('linkClicked') link = new EventEmitter<string>(); 
     constructor(){}
+
+    onLinkClick(linkClicked:string){
+        this.link.emit(linkClicked);
+    }
 }
